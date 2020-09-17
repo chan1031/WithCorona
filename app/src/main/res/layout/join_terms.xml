@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="#fff"
+            android:baselineAligned="false"
+            android:gravity="center_horizontal|center"
+            android:text="회원가입"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:visibility="visible" />
+        <TextView
+            android:id="@+id/back"
+            android:layout_width="56dp"
+            android:layout_height="55dp"
+            android:background="#fff"
+            android:baselineAligned="false"
+            android:gravity="center_horizontal|center"
+            android:text="←"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:visibility="visible" />
+    </FrameLayout>
+
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        app:srcCompat="@drawable/login" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="326dp"
+        android:layout_height="97dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:background="#eeeeee"
+        android:gravity="center_horizontal|center"
+        android:text="코로나19에 관한 약관동의 절차입니다"
+        android:textColor="#000000"
+        android:textSize="19sp"
+        android:textStyle="normal"
+
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.235" />
+
+ />
+
+    <LinearLayout
+        android:layout_width="374dp"
+        android:layout_height="500dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="22dp"
+        android:orientation="vertical"
+        android:layout_marginBottom="20dp">
+
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="374dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:text="코로나19감염 예방을 위한\n개인정보 수집 ·이용 및 제공동의서"
+            android:textColor="#333"
+            android:textSize="25dp">
+
+
+        </TextView>
+
+        <View
+            android:layout_marginLeft="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="20dp"
+            android:background="#707070" />
+
+
+        <TextView
+            android:id="@+id/text2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:text="개인정보 수집 및 이용동의"
+            android:textColor="#707070"
+            android:textSize="27dp"
+
+            />
+
+        <TextView
+            android:id="@+id/text4"
+            android:layout_width="355dp"
+            android:layout_height="127dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:text="「검역법」 제 15조,제 17조 및 「감염병예방법」 제 49조,제 76조의 2에 따른 자가격리자 안전 보호와 감염병 예방 및 감염전파의 차단을 위해「개인정보보호법」 제15조,제23조,제24조에 따른 개인정보와 「위치정보의 보호 및 이용에 관한 법률」제15조에 따라 위치정보 제공 및 활용에 동의합니다."
+            android:textColor="#707070"
+            android:textSize="15dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/border"
+
+
+            >
+
+            <TableLayout
+                android:layout_width="340dp"
+                android:layout_height="match_parent"
+                >
+
+
+                <TableRow
+                    android:background="@drawable/border">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+
+                        android:gravity="center"
+                        android:text="수집항목" />
+
+                    <TextView
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+
+                        android:text="수집목적" />
+
+                    <TextView
+                        android:layout_width="98dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+
+                        android:text="보유기간" />
+                </TableRow>
+
+                <TableRow
+                    >
+
+                    <TextView
+                        android:layout_width="108dp"
+                        android:layout_height="match_parent"
+
+                        android:gravity="center"
+                        android:text="성명,   블루투스 mac 주소, 핸드폰 번호, 위치정보" />
+
+                    <TextView
+                        android:layout_width="108dp"
+                        android:layout_height="match_parent"
+
+                        android:gravity="center"
+                        android:text="코로나 19 감염예방 및 확산방지" />
+
+                    <TextView
+                        android:layout_width="113dp"
+                        android:layout_height="match_parent"
+
+                        android:gravity="center"
+                        android:text="어플리케이션 \n탈퇴 전까지" />
+                </TableRow>
+
+
+            </TableLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/text5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="※개인정보 수집 이용에 대한  동의를 거부할 권리가 있습니다."
+            android:textColor="#707070"
+            android:textSize="12dp"
+
+            />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/border"
+    >
+        <TextView
+            android:id="@+id/text6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="개인정보 수집 이용 ·  동의 (필수)"
+            android:textColor="#000"
+            android:textSize="18dp"
+
+            />
+
+    <LinearLayout
+        android:layout_width="150dp"
+        android:layout_height="34dp"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="198dp"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/RadioButtonYes"
+                android:layout_width="209dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+
+                android:text="동의" />
+
+
+            <RadioButton
+                android:id="@+id/RadioButtonNo"
+                android:layout_width="267dp"
+                android:layout_height="34dp"
+                android:layout_weight="1"
+
+                android:text="미동의" />
+        </RadioGroup>
+    </LinearLayout>
+</LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom">
+
+
+        <Button
+            android:id="@+id/next"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@drawable/button_state"
+            android:enabled="false"
+            android:stateListAnimator="@null"
+            android:text="다음"
+            android:textSize="30dp" />
+    </LinearLayout>
+
+</LinearLayout>
+</ScrollView>

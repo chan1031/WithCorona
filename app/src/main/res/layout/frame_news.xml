@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/ToolBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        android:background="@android:color/background_light"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="#NEWS"
+            android:textSize="20dp"
+            android:textColor="@android:color/black"/>
+    </androidx.appcompat.widget.Toolbar>
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="9dp"
+        android:background="#D4D0D0" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="241dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="메인뉴스"
+            android:textColor="#000000"
+            android:textSize="23dp" />
+
+        <ImageView
+            android:id="@+id/abc"
+            android:layout_width="380dp"
+            android:layout_height="145dp"
+            android:layout_marginLeft="18dp"
+            android:scaleType="center"
+            android:src="@drawable/news"></ImageView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="18dp"
+            android:text="문대통령 지금 막아내지 못하면 3단계 격상 불가피(종합)"
+            android:textColor="#000000"
+            android:textStyle="bold" />
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="match_parent"
+            android:layout_height="9dp"
+            android:layout_marginTop="5dp"
+            android:background="#D4D0D0" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="12dp"
+            android:text="추천뉴스"
+            android:textColor="#000000"
+            android:textSize="23dp"
+            tools:ignore="MissingConstraints" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="92dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="169dp"
+                android:layout_height="84dp"
+                app:srcCompat="@drawable/news2" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="85dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="211dp"
+                    android:layout_height="51dp"
+                    android:text="확진자 근무한 경기도 김포시 제2화물집하장 전면 폐쇄…확진자 접촉한 직원 전수조사 및 자가격리"
+                    android:textColor="#000000"
+                    android:textSize="12dp"
+                    tools:ignore="MissingConstraints"
+                    tools:layout_editor_absoluteY="63dp"></TextView>
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="210dp"
+                    android:layout_height="19dp"
+                    android:text="노컷뉴스 | 2020-08-28"
+                    android:textColor="#A19A9A"
+                    android:textSize="12dp"></TextView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <View
+            android:id="@+id/view8"
+            android:layout_width="357dp"
+            android:layout_height="2dp"
+            android:layout_marginLeft="21dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="#D4D0D0" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="169dp"
+                android:layout_height="84dp"
+                app:srcCompat="@drawable/news3"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="15dp"
+                tools:layout_editor_absoluteY="178dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="211dp"
+                    android:layout_height="51dp"
+                    android:text="나 코로나 환자 70대 할머니 역삼역서 소동…자택 귀가(종합)"
+                    android:textColor="#000000"
+                    android:textSize="12dp"
+                    tools:ignore="MissingConstraints"
+                    tools:layout_editor_absoluteX="180dp"
+                    tools:layout_editor_absoluteY="178dp"></TextView>
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="210dp"
+                    android:layout_height="19dp"
+                    android:text="연합뉴스 | 2020-08-28"
+                    android:textColor="#A19A9A"
+                    android:textSize="12dp"
+                    tools:ignore="MissingConstraints"
+                    tools:layout_editor_absoluteX="181dp"
+                    tools:layout_editor_absoluteY="236dp"></TextView>
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:id="@+id/view9"
+            android:layout_width="357dp"
+            android:layout_height="2dp"
+            android:layout_marginLeft="21dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="#D4D0D0" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="172dp"
+                android:layout_height="98dp"
+                app:srcCompat="@drawable/news4"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="14dp"
+                tools:layout_editor_absoluteY="285dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="211dp"
+                    android:layout_height="match_parent"
+                    android:text="문 잠그는 ‘섬’…완도군 코로나19로 외지인 통제"
+                    android:textColor="#000000"
+                    android:textSize="12dp"
+                    tools:ignore="MissingConstraints"
+                    tools:layout_editor_absoluteX="180dp"
+                    tools:layout_editor_absoluteY="293dp"></TextView>
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="210dp"
+                    android:layout_height="19dp"
+                    android:text="연합뉴스 | 2020-08-28"
+                    android:textColor="#A19A9A"
+                    android:textSize="12dp"
+                    tools:ignore="MissingConstraints"
+                    tools:layout_editor_absoluteX="180dp"
+                    tools:layout_editor_absoluteY="353dp"></TextView>
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

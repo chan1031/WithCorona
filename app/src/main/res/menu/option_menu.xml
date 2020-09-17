@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/file_open"
+        android:title="file open"/>
+    <item android:id="@+id/file_close"
+        android:title="file close"/>
+
+</menu>
