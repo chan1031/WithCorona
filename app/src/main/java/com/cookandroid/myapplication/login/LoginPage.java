@@ -16,6 +16,7 @@ import com.cookandroid.myapplication.join.Terms;
 public class LoginPage extends AppCompatActivity {
     private Button loginbtn;
 
+    //loginbranch Test
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
