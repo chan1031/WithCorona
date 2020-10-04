@@ -1,6 +1,7 @@
 package com.cookandroid.myapplication.login;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -24,61 +25,66 @@ public class LoginPage extends AppCompatActivity {
     private Button loginbtn;
     private EditText login_id;
     private EditText login_pass;
+    private int validateFlag = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_page);
-
+        /* 1.선언 */
         login_id = findViewById(R.id.login_id);
         login_pass = findViewById(R.id.login_pass);
-
         loginbtn = (Button)findViewById(R.id.loginButton);
+        //StringRequest에 넣을 responseListner를 선언한다.
+        final Response.Listener<String> responseListener = new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                // 서버로부터 문자열 response를 받아서 처리하는 과정
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    // Register php의 불린 값을 요청
+                    boolean success = jsonObject.getBoolean("success");
+                    // 로그인에 성공
+                    if (success){
+                        //php에서 불러온 데이터를 저장
+                        String userID = jsonObject.getString("userID");
+                        String userPass = jsonObject.getString("userPassword");
+                        //로그인 성공 Toast
+                        Toast.makeText(getApplicationContext(),"로그인에 성공", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(LoginPage.this, MainActivity.class);
+                        intent.putExtra("userID",userID);
+                        intent.putExtra("userPass",userPass);
+                        startActivity(intent);
+                    }else{ // 회원가입에 실패
+                        Toast.makeText(getApplicationContext(),"아이디와 비밀번호가 틀립니다.", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                } catch (JSONException e){
+                    e.printStackTrace();
+                }
+            }
+        };
+
+        /* 2.method */
+
+        //로그인 버튼 클릭시 동작
         loginbtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-
-                //아이디 값과 패스워드 값을 변수에 저장한다.
-                final String userID = login_id.getText().toString();
+                String userID = login_id.getText().toString();
                 String userPass = login_pass.getText().toString();
-
-                //StringRequest에 넣을 responseListner를 선언한다.
-                Response.Listener<String> responseListener = new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        // 서버로부터 문자열 response를 받아서 처리하는 과정
-                        try {
-                            JSONObject jsonObject = new JSONObject(response);
-                            // Register php의 불린 값을 요청
-                            boolean success = jsonObject.getBoolean("success");
-                            if (success){
-                                //php에서 불러온 데이터를 저장
-                                String userID = jsonObject.getString("userID");
-                                String userPass = jsonObject.getString("userPassword");
-                                // 로그인에 성공
-                                Toast.makeText(getApplicationContext(),"로그인에 성공", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(LoginPage.this, MainActivity.class);
-                                intent.putExtra("userID",userID);
-                                intent.putExtra("userPass",userPass);
-
-                                startActivity(intent);
-                            }else{ // 회원가입에 실패
-                                Toast.makeText(getApplicationContext(),"로그인에 실패", Toast.LENGTH_SHORT).show();
-                                return;
-                            }
-                        } catch (JSONException e){
-                            e.printStackTrace();
-                        }
-                    }
-                };
-                LoginRequest loginRequset = new LoginRequest(userID,userPass,responseListener);
-                //RequestQueue를 선언한다.
-                RequestQueue queue = Volley.newRequestQueue(LoginPage.this);
-                //서버에 값을 요청한다.
-                queue.add(loginRequset);
+                //유효성 검사
+                validateCheck(userID,userPass);
+                if(validateFlag == 1){
+                    LoginRequest loginRequset = new LoginRequest(userID,userPass,responseListener);
+                    //RequestQueue를 선언한다.
+                    RequestQueue queue = Volley.newRequestQueue(LoginPage.this);
+                    //서버에 값을 요청한다.
+                    queue.add(loginRequset);
+                }
             }
         });
-
+        //회원가입페이지로 이동
         TextView nextButton=(TextView) findViewById(R.id.passSch);
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,6 +94,18 @@ public class LoginPage extends AppCompatActivity {
             }
         });
     }
+    public void validateCheck(String id,String pass){
+        if(id.equals("")){
+            Toast.makeText(getApplicationContext()," 아이디를 입력하세요", Toast.LENGTH_SHORT).show();
+            login_id.requestFocus();
+        }else if(pass.equals("")){
+            Toast.makeText(getApplicationContext(),"비밀번호를 입력하세요", Toast.LENGTH_SHORT).show();
+            login_pass.requestFocus();
+        }else{
+            validateFlag = 1;
+        }
+    }
+
 }
 
 
