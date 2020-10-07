@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyB6V42Q3_7SF1izFDzCXdlkwkhVmlV401M" />
+            android:value="AIzaSyBQz_VnAPm7J6nXr8m7NDKvNO5osiQhw2w" />
         <uses-library android:name="org.apache.http.legacy" android:required="false"/>
         <activity android:name=".login.Loding">
             <intent-filter>
