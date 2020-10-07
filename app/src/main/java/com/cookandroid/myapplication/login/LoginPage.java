@@ -1,5 +1,6 @@
 package com.cookandroid.myapplication.login;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -9,7 +10,6 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.cookandroid.myapplication.MainActivity;
 import com.cookandroid.myapplication.R;
 import com.cookandroid.myapplication.join.Terms;
 
@@ -22,12 +22,10 @@ public class LoginPage extends AppCompatActivity {
         setContentView(R.layout.login_page);
 
         loginbtn = (Button)findViewById(R.id.loginButton);
-        loginbtn.setOnTouchListener(new View.OnTouchListener() {
-            public boolean onTouch(View arg0, MotionEvent arg1){
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-
+        loginbtn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view){
+                Intent intent=new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
-                return false;
             }
         });
 

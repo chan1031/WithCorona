@@ -1,4 +1,4 @@
-package com.cookandroid.myapplication;
+package com.cookandroid.myapplication.login;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,9 +9,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.cookandroid.myapplication.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class Main2 extends AppCompatActivity {
+public class Main2 extends AppCompatActivity  {
 
     private int FlagNum;
 
@@ -49,7 +50,7 @@ public class Main2 extends AppCompatActivity {
                         setFrag(2);
                         break;
                 }
-                return true;
+                return false;
             }
         });
         frag1 = new Option();
@@ -64,23 +65,27 @@ public class Main2 extends AppCompatActivity {
     }
 
     // 프래그먼트 교체
-    private void setFrag(int n){
+    private boolean setFrag(int n){
         fm = getSupportFragmentManager();
         ft = fm.beginTransaction();
         switch(n){
             case 0:
+
                 ft.replace(R.id.Main_Frame, frag2);
                 ft.commit();
                 break;
             case 1:
+
                 ft.replace(R.id.Main_Frame,frag3);
                 ft.commit();
                 break;
             case 2:
+
                 ft.replace(R.id.Main_Frame,frag1);
                 ft.commit();
                 break;
             case 3:
+
                 ft.replace(R.id.Main_Frame,frag4);
                 ft.commit();
                 break;
@@ -101,5 +106,7 @@ public class Main2 extends AppCompatActivity {
                 ft.commit();
                 break;
         }
+        return false;
     }
+
 }

@@ -5,9 +5,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -33,10 +31,7 @@ public class LoginSuccess extends AppCompatActivity {
         });
         toolbar = (Toolbar) findViewById(R.id.ToolBar);
         setSupportActionBar(toolbar);
-        ActionBar ab = getSupportActionBar();
-        ab.setDisplayShowCustomEnabled(true);
-        ab.setDisplayShowTitleEnabled(false);//기본 제목을 없애줍니다.
-        ab.setDisplayHomeAsUpEnabled(true);
+
 
     }
     //툴바 뒤로가기

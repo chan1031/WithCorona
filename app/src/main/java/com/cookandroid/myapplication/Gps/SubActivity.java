@@ -3,16 +3,12 @@ package com.cookandroid.myapplication.Gps;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
-import com.cookandroid.myapplication.Frag2;
-import com.cookandroid.myapplication.Frag3;
 import com.cookandroid.myapplication.R;
+import com.cookandroid.myapplication.login.Frag3;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -25,23 +21,19 @@ public class SubActivity extends AppCompatActivity
         implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-    Toolbar toolbar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.gps_map);
+        setContentView(R.layout.frame_gps);
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-        toolbar = (Toolbar) findViewById(R.id.ToolBar);
-        setSupportActionBar(toolbar);
-        ActionBar ab = getSupportActionBar();
-        ab.setDisplayShowCustomEnabled(true);
-        ab.setDisplayShowTitleEnabled(false);//기본 제목을 없애줍니다.
-        ab.setDisplayHomeAsUpEnabled(true);
+
+
 
     }
 
@@ -67,16 +59,4 @@ public class SubActivity extends AppCompatActivity
         startActivity(intent);
     }
 
-    //툴바 뒤로가기
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case android.R.id.home:{ //toolbar의 back키 눌렀을 때 동작
-                onBackPressed();
-                return true;
-            }
-        }
-        return super.onOptionsItemSelected(item);
     }
-
-}

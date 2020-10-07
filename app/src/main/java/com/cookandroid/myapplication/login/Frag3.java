@@ -1,4 +1,4 @@
-package com.cookandroid.myapplication;
+package com.cookandroid.myapplication.login;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,6 +19,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
 import com.cookandroid.myapplication.Gps.SubActivity;
+import com.cookandroid.myapplication.R;
 
 public class Frag3 extends Fragment {
     Toolbar toolbar;
@@ -70,6 +71,12 @@ public class Frag3 extends Fragment {
         ab.setDisplayShowCustomEnabled(true);
         ab.setDisplayShowTitleEnabled(false);//기본 제목을 없애줍니다.
         ab.setDisplayHomeAsUpEnabled(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().onBackPressed();
+            }
+        });
 
         return view;
     }
