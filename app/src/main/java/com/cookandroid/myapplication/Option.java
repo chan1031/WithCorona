@@ -1,16 +1,27 @@
 package com.cookandroid.myapplication;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.Volley;
+import com.cookandroid.myapplication.login.LoginPage;
+import com.cookandroid.myapplication.login.LoginRequest;
+
+import static android.content.Context.MODE_PRIVATE;
 
 public class Option extends Fragment {
 
@@ -18,6 +29,7 @@ public class Option extends Fragment {
     private TextView password;
     private TextView locationSet;
     private int flagNum;
+    private Button logout;
 
     @Nullable
     @Override
@@ -52,6 +64,22 @@ public class Option extends Fragment {
             }
         });
 
+        //로그아웃
+        logout = (Button)view.findViewById(R.id.logout);
+        logout.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+
+                SharedPreferences sp = requireActivity().getSharedPreferences("user", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sp.edit();
+                editor.clear();
+                editor.commit();
+
+                Toast.makeText(getActivity(),"로그아웃 하셨습니다.", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity(), LoginPage.class);
+                startActivity(intent);
+                }
+            });
 
         return view;
     }

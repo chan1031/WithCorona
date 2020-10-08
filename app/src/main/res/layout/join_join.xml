@@ -4,9 +4,7 @@
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -89,7 +87,7 @@
             android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/id"
+                android:id="@+id/et_id"
                 android:layout_width="238dp"
                 android:layout_height="45dp"
                 android:gravity="left|center"
@@ -99,7 +97,7 @@
                 tools:layout_editor_absoluteY="289dp" />
 
             <Button
-                android:id="@+id/btnCheck"
+                android:id="@+id/IdCheck"
                 android:layout_width="wrap_content"
                 android:layout_height="42dp"
                 android:text="중복 확인"
@@ -117,7 +115,7 @@
             tools:layout_editor_absoluteY="415dp" />
 
         <EditText
-            android:id="@+id/pass"
+            android:id="@+id/et_pass"
             android:layout_width="237dp"
             android:layout_height="43dp"
             android:ems="10"
@@ -134,7 +132,7 @@
             tools:layout_editor_absoluteY="396dp" />
 
         <EditText
-            android:id="@+id/passCheak"
+            android:id="@+id/et_passCheck"
             android:layout_width="237dp"
             android:layout_height="43dp"
             android:ems="10"
@@ -154,7 +152,7 @@
             tools:layout_editor_absoluteY="415dp" />
 
         <EditText
-            android:id="@+id/name"
+            android:id="@+id/et_name"
             android:layout_width="238dp"
             android:layout_height="45dp"
             android:gravity="left|center"
@@ -178,11 +176,12 @@
             android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/tel"
+                android:id="@+id/et_tel"
                 android:layout_width="238dp"
                 android:layout_height="45dp"
                 android:gravity="left|center"
                 android:hint="전화번호를 입력해 주세요"
+                android:inputType="phone"
                 tools:ignore="InvalidId,MissingConstraints"
                 tools:layout_editor_absoluteX="42dp"
                 tools:layout_editor_absoluteY="541dp" />

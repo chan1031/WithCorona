@@ -1,6 +1,5 @@
 package com.cookandroid.myapplication.join;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.cookandroid.myapplication.R;
 
-public class Terms extends AppCompatActivity {
+public class RegisterTerms extends AppCompatActivity {
     private RadioGroup rg;
     private Button nextButton;
 
@@ -26,7 +25,7 @@ public class Terms extends AppCompatActivity {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(getApplicationContext(), Join.class);
+                Intent intent=new Intent(getApplicationContext(), Register.class);
                 startActivity(intent);
             }
         });
@@ -51,7 +50,7 @@ public class Terms extends AppCompatActivity {
         Back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Terms.class);
+                Intent intent = new Intent(getApplicationContext(), RegisterTerms.class);
                 startActivity(intent);
 
 
