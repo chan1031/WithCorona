@@ -37,11 +37,11 @@ public class Loding extends AppCompatActivity {
             @Override
             public void run() {
                 /* 1.선언 */
-                final SharedPreferences sharedPreferences= getSharedPreferences("user", MODE_PRIVATE);
+                SharedPreferences sharedPreferences= getSharedPreferences("user", MODE_PRIVATE);
                 String id = sharedPreferences.getString("id","");
-                String ps = sharedPreferences.getString("pass","");
+                String ps = sharedPreferences.getString("ps","");
                 //StringRequest에 넣을 responseListner를 선언한다.
-                final Response.Listener<String> responseListener = new Response.Listener<String>() {
+                Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         // 서버로부터 문자열 response를 받아서 처리하는 과정
@@ -54,13 +54,8 @@ public class Loding extends AppCompatActivity {
                                 //php에서 불러온 데이터를 저장
                                 String userID = jsonObject.getString("userID");
                                 String userPass = jsonObject.getString("userPassword");
-                                // SharedPreferences를 활용한 데이터 저장
-                                SharedPreferences.Editor editor= sharedPreferences.edit(); //sharedPreferences를 제어할 editor를 선언
-                                editor.putString("id",userID); // key,value 형식으로 저장
-                                editor.putString("pass",userPass); // key,value 형식으로 저장
-                                editor.commit();
-                                //로그인 성공 Toast
-                                Toast.makeText(getApplicationContext(),"로그인에 성공", Toast.LENGTH_SHORT).show();
+
+                                Toast.makeText(getApplicationContext(),userID +"님 환영합니다", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(Loding.this, MainActivity.class);
                                 intent.putExtra("userID",userID);
                                 intent.putExtra("userPass",userPass);
@@ -91,7 +86,7 @@ public class Loding extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }
-        }, 1000);
+        }, 3000);
     }
 }
 

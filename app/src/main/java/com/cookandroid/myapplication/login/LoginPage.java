@@ -35,6 +35,7 @@ public class LoginPage extends AppCompatActivity {
         login_id = findViewById(R.id.login_id);
         login_pass = findViewById(R.id.login_pass);
         loginbtn = (Button)findViewById(R.id.loginButton);
+
         //StringRequest에 넣을 responseListner를 선언한다.
         final Response.Listener<String> responseListener = new Response.Listener<String>() {
             @Override
@@ -49,6 +50,7 @@ public class LoginPage extends AppCompatActivity {
                         //php에서 불러온 데이터를 저장
                         String userID = jsonObject.getString("userID");
                         String userPass = jsonObject.getString("userPassword");
+
                         //로그인 성공 Toast
                         Toast.makeText(getApplicationContext(),"로그인에 성공", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(LoginPage.this, MainActivity.class);
@@ -73,6 +75,11 @@ public class LoginPage extends AppCompatActivity {
             public void onClick(View view) {
                 String userID = login_id.getText().toString();
                 String userPass = login_pass.getText().toString();
+                SharedPreferences sharedPreferences= getSharedPreferences("user", MODE_PRIVATE);    // test 이름의 기본모드 설정
+                SharedPreferences.Editor editor= sharedPreferences.edit(); //sharedPreferences를 제어할 editor를 선언
+                editor.putString("id",userID); // key,value 형식으로 저장
+                editor.putString("ps",userPass); // key,value 형식으로 저장
+                editor.commit();    //최종 커밋. 커밋을 해야 저장이 된다.
                 //유효성 검사
                 validateCheck(userID,userPass);
                 if(validateFlag == 1){
@@ -107,5 +114,3 @@ public class LoginPage extends AppCompatActivity {
     }
 
 }
-
-

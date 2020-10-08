@@ -27,6 +27,7 @@ public class Register extends AppCompatActivity {
     private EditText et_passCheck;
 
     private static int idFlag = 0;
+    private static int validateInt =0;
 
     private Button idCheck;
 
@@ -50,12 +51,16 @@ public class Register extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String userID = et_id.getText().toString();
-                String userName = et_name.getText().toString();
                 String userPass = et_pass.getText().toString();
                 String userPassCheck = et_passCheck.getText().toString();
-                String userAge = et_tel.getText().toString();
+                String userTel = et_tel.getText().toString();
+                String userName = et_name.getText().toString();
 
-                if(userPass.equals(userPassCheck) && idFlag == 1 ){
+                //유효성 검사 메서드
+                validateCheck(userID,userPass,userPassCheck,userTel,userName);
+
+                //비밀번호 재입력과 아이디 중복체크 여부 확인
+                if(userPass.equals(userPassCheck) && idFlag == 1 && validateInt == 1){
                     Response.Listener<String> responseListener = new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
@@ -77,14 +82,14 @@ public class Register extends AppCompatActivity {
                             }
                         }
                     };
-                    RegisterRequest registerRequest = new RegisterRequest(userID,userPass,userName,userAge, responseListener);
+                    RegisterRequest registerRequest = new RegisterRequest(userID,userPass,userName,userTel, responseListener);
                     RequestQueue queue = Volley.newRequestQueue(Register.this);
                     queue.add(registerRequest);
                 }else{
                     if(idFlag==1){
                         Toast.makeText(getApplicationContext(),"패스워드가 같지 않습니다.", Toast.LENGTH_SHORT).show();
                         et_passCheck.requestFocus();
-                    }else{
+                    }else if(idFlag==0){
                         Toast.makeText(getApplicationContext(),"아이디중복체크를 해주세요.", Toast.LENGTH_SHORT).show();
                     }
 
@@ -133,6 +138,29 @@ public class Register extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    public void validateCheck(String userId,String userPass,String userPassCheck,String userTel,String userName){
+        if(userId.equals("")) {
+            Toast.makeText(getApplicationContext(),"아이디를 입력하세요", Toast.LENGTH_SHORT).show();
+            et_id.requestFocus();
+        }else if(userPass.equals("")){
+            Toast.makeText(getApplicationContext(),"비밀번호를 입력하세요", Toast.LENGTH_SHORT).show();
+            et_pass.requestFocus();
+        }else if(userPassCheck.equals("")){
+            Toast.makeText(getApplicationContext(),"비밀번호 확인을 입력하세요", Toast.LENGTH_SHORT).show();
+            et_passCheck.requestFocus();
+        }else if(userName.equals("")){
+            Toast.makeText(getApplicationContext(),"이름 입력하세요", Toast.LENGTH_SHORT).show();
+            et_name.requestFocus();
+        }else if(userTel.equals("")){
+            Toast.makeText(getApplicationContext(),"전화번호를 입력하세요", Toast.LENGTH_SHORT).show();
+            et_tel.requestFocus();
+        }
+        else{
+            validateInt = 1;
+        }
+
     }
 
 }
