@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
-
+    android:orientation="vertical"
+    android:background="@color/colorBackground">
+<!--툴바-->
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        >
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/OptionToolBar"
             android:layout_width="match_parent"
@@ -24,208 +24,225 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="#Option"
+                android:text="옵션 설정"
                 android:textSize="20dp"
                 android:textColor="@android:color/black"/>
         </androidx.appcompat.widget.Toolbar>
 
-
-
-
-
-    </LinearLayout>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="42dp"
-        android:layout_marginTop="68dp"
-        android:layout_marginStart="20dp"
-
-        android:text="MyOption"
-
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:visibility="visible"
-        android:layout_marginLeft="20dp" />
     <View
-        android:id="@+id/view"
         android:layout_width="match_parent"
-        android:layout_height="5dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="-2dp"
-        android:layout_marginLeft="-2dp"
-        android:layout_marginTop="52dp"
-        android:background="#D4D0D0" />
+        android:layout_height="1dp"
+        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="#E9E7E7" />
+</LinearLayout>
 
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_marginTop="120dp">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+ >
 
-        <TextView
+        <!--계정 Layout-->
+
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="45dp"
+            android:layout_marginTop="90dp">
 
-            android:background="#eee"
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
 
-            android:textColor="#000000"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:visibility="visible" />
+                android:background="#eee"
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="38dp"
-            android:layout_height="27dp"
-            android:layout_marginLeft="20dp"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="8dp"
-            app:srcCompat="@drawable/locker" />
+                android:textColor="#000000"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:visibility="visible" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_centerInParent="true"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:background="#696969" />
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="38dp"
+                android:layout_height="27dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="8dp"
+                app:srcCompat="@drawable/locker" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="60dp"
+                android:layout_marginLeft="59dp"
+                android:layout_marginTop="10dp"
+                android:text="계정"
+                android:textColor="#090909"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/logout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginRight="15dp"
+                android:text="로그아웃" />
+        </FrameLayout>
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="60dp"
-            android:layout_marginLeft="59dp"
-            android:layout_marginTop="10dp"
-            android:text="계정"
-            android:textColor="#090909"
-            android:textSize="18sp" />
-    </FrameLayout>
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_marginTop="300dp">
-
-        <TextView
+            android:layout_gravity="right"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"
+            android:text="비밀번호 변경  >"
+            android:textColor="#000000"
+            android:textSize="15sp" />
+        <!--    기능 Layout-->
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="190dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="20dp">
 
-            android:background="#eee"
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
 
-            android:textColor="#000000"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:visibility="visible" />
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="34dp"
-            android:layout_height="27dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="8dp"
-            app:srcCompat="@drawable/pngwing" />
+                android:background="#eee"
+
+                android:textColor="#000000"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:visibility="visible" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_centerInParent="true"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:background="#696969" />
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="34dp"
+                android:layout_height="27dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="8dp"
+                app:srcCompat="@drawable/pngwing" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="60dp"
+                android:layout_marginLeft="59dp"
+                android:layout_marginTop="8dp"
+                android:text="기능"
+                android:textColor="#090909"
+                android:textSize="19sp" />
+        </FrameLayout>
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/textView7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="60dp"
-            android:layout_marginLeft="59dp"
-            android:layout_marginTop="8dp"
-            android:text="기능"
-            android:textColor="#090909"
-            android:textSize="19sp" />
-    </FrameLayout>
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="263dp"
-        android:layout_marginLeft="263dp"
-        android:layout_marginTop="175dp"
-        android:text="비밀번호 변경  >"
-        android:textColor="#000000"
-        android:textSize="15sp" />
+            android:layout_gravity="right"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"
+            android:text="인천 광역시 뭐시기 >"
+            android:textColor="#000000"
+            android:textSize="15sp" />
 
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="246dp"
-        android:layout_marginLeft="246dp"
-        android:layout_marginTop="265dp"
-        android:text="인천 광역시 뭐시기 >"
-        android:textColor="#000000"
-        android:textSize="15sp" />
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_marginTop="210dp">
-
-        <TextView
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="190dp"
-            android:background="#eee"
+            android:layout_height="45dp"
+            android:layout_marginTop="20dp">
 
-            android:textColor="#000000"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:visibility="visible" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:background="#eee"
 
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="38dp"
-            android:layout_height="27dp"
-            android:layout_marginLeft="20dp"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="8dp"
-            app:srcCompat="@drawable/house" />
-        <TextView
-            android:id="@+id/textView5"
+                android:textColor="#000000"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:visibility="visible" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_centerInParent="true"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:background="#696969" />
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="38dp"
+                android:layout_height="27dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="8dp"
+                app:srcCompat="@drawable/house" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="60dp"
+                android:layout_marginLeft="59dp"
+                android:layout_marginTop="11dp"
+                android:text="홈 설정"
+                android:textColor="#090909"
+                android:textSize="18sp" />
+
+        </FrameLayout>
+
+        <Switch
+            android:id="@+id/switch2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="60dp"
-            android:layout_marginLeft="59dp"
-            android:layout_marginTop="11dp"
-            android:text="홈 설정"
-            android:textColor="#090909"
-            android:textSize="18sp" />
+            android:layout_gravity="right"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="30dp"
+            android:text="블루투스 설정 " />
 
-    </FrameLayout>
+        <Switch
+            android:id="@+id/switch3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="right"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="30dp"
+            android:text="타임라인 설정 " />
 
-    <Switch
-        android:id="@+id/switch2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="255dp"
-        android:layout_marginLeft="255dp"
-        android:layout_marginTop="355dp"
-        android:text="블루투스 설정 " />
-
-    <Switch
-        android:id="@+id/switch3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="254dp"
-        android:layout_marginLeft="254dp"
-        android:layout_marginTop="385dp"
-        android:text="타임라인 설정 " />
-
-
+    </LinearLayout>
 </RelativeLayout>

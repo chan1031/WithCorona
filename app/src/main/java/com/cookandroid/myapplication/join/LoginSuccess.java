@@ -9,6 +9,7 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.cookandroid.myapplication.R;
 import com.cookandroid.myapplication.login.LoginPage;
 
@@ -21,6 +22,13 @@ public class LoginSuccess extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.join_sucess);
 
+
+        LottieAnimationView animationView = (LottieAnimationView) findViewById(R.id.animation);
+        animationView.setAnimation("confetti.json");
+        animationView.setScale((float) 0.3);
+
+//Lottie Animation start
+        animationView.playAnimation();
         Button nextButton = (Button) findViewById(R.id.check);
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
