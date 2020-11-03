@@ -1,4 +1,4 @@
-package com.example.backgroundserviceexample;
+package com.cookandroid.myapplication.gioFencing;
 
 // 니가 찾는것이 없으면 직접 만드세요 객체지향두고 뭐하세요?
 public class PointD {

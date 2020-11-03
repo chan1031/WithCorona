@@ -1,4 +1,4 @@
-package com.example.backgroundserviceexample;
+package com.cookandroid.myapplication.gioFencing;
 
 import android.app.Service;
 import android.content.Context;
@@ -11,8 +11,14 @@ import android.os.IBinder;
 import android.util.Log;
 import android.widget.Toast;
 
-
 import androidx.annotation.Nullable;
+
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -59,7 +65,6 @@ public class GpsService extends Service {
     final double y3 = 37.412501;
     final double y4 = 37.413728;
 
-
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
@@ -68,6 +73,7 @@ public class GpsService extends Service {
 
     @Override
     public void onCreate() {
+
         // 지오펜싱 값 지정
         addPoint(x1,y1);
         addPoint(x2,y2);
@@ -79,7 +85,9 @@ public class GpsService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+        String userID = intent.getStringExtra("userID");
 
+        System.out.println("지오펜싱을 위한 테스트1 "+userID);
         final LocationManager lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         try {
                 lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, // 등록할 위치제공자
@@ -103,7 +111,6 @@ public class GpsService extends Service {
 
     private final LocationListener mLocationListener = new LocationListener() {
         public void onLocationChanged(Location location) {
-
             System.out.println("listener test");
             Log.d("test", "onLocationChanged, location:" + location);
             double longitude = location.getLongitude();
@@ -118,6 +125,15 @@ public class GpsService extends Service {
             if(isPointInPolygon(longitude,latitude)){
                 Toast myToast = Toast.makeText(getApplicationContext() ,"In", Toast.LENGTH_SHORT);
                 myToast.show();
+                Response.Listener<String> responseListener = new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                    }
+                };
+                GiofencingRequest GiofencingRequest = new GiofencingRequest("a", responseListener);
+                RequestQueue queue = Volley.newRequestQueue(GpsService.this);
+                queue.add(GiofencingRequest);
+
             }else{
                 Toast myToast = Toast.makeText(getApplicationContext(),"out", Toast.LENGTH_SHORT);
                 myToast.show();
@@ -139,4 +155,9 @@ public class GpsService extends Service {
             Log.d("test", "onStatusChanged, provider:" + provider + ", status:" + status + " ,Bundle:" + extras);
         }
     };
+
+    public void inside(){
+
+
+    }
 }

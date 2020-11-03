@@ -18,6 +18,7 @@ import androidx.fragment.app.Fragment;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
+import com.cookandroid.myapplication.gioFencing.GpsService;
 import com.cookandroid.myapplication.login.LoginPage;
 import com.cookandroid.myapplication.login.LoginRequest;
 
@@ -76,6 +77,8 @@ public class Option extends Fragment {
                 editor.commit();
 
                 Toast.makeText(getActivity(),"로그아웃 하셨습니다.", Toast.LENGTH_SHORT).show();
+                Intent intent2 = new Intent(getActivity(), GpsService.class);
+                getActivity().stopService(intent2);
                 Intent intent = new Intent(getActivity(), LoginPage.class);
                 startActivity(intent);
                 }

@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cookandroid.myapplication">
 
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
@@ -32,6 +35,10 @@
         <activity android:name=".join.RegisterSuccess"/>
         <activity android:name=".Gps.SubActivity"
             android:launchMode="singleTask"/>
+
+        <service android:name=".gioFencing.GpsService">
+
+        </service>
     </application>
 
 </manifest>

@@ -50,12 +50,13 @@ public class LoginPage extends AppCompatActivity {
                         //php에서 불러온 데이터를 저장
                         String userID = jsonObject.getString("userID");
                         String userPass = jsonObject.getString("userPassword");
+                        System.out.println("로그인한 아이디:"+userID);
 
                         //로그인 성공 Toast
                         Toast.makeText(getApplicationContext(),"로그인에 성공", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(LoginPage.this, MainActivity.class);
                         intent.putExtra("userID",userID);
-                        intent.putExtra("userPass",userPass);
+                        //DTO에 userID의 값을 저장
                         startActivity(intent);
                     }else{ // 회원가입에 실패
                         Toast.makeText(getApplicationContext(),"아이디와 비밀번호가 틀립니다.", Toast.LENGTH_SHORT).show();
