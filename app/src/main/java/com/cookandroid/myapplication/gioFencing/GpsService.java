@@ -87,14 +87,13 @@ public class GpsService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
         String userID = intent.getStringExtra("userID");
 
-        System.out.println("지오펜싱을 위한 테스트1 "+userID);
         final LocationManager lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         try {
-                lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, // 등록할 위치제공자
+                lm.requestLocationUpdates(LocationManager.GPS_PROVIDER,
                         10000,
                         1,
                         mLocationListener);
-                lm.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, // 등록할 위치제공자
+                lm.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,
                         10000,
                         1,
                         mLocationListener);
@@ -155,9 +154,4 @@ public class GpsService extends Service {
             Log.d("test", "onStatusChanged, provider:" + provider + ", status:" + status + " ,Bundle:" + extras);
         }
     };
-
-    public void inside(){
-
-
-    }
 }

@@ -38,9 +38,9 @@ public class MainActivity extends AppCompatActivity {
 
         String userID = getIntent().getStringExtra("userID");
 
-        Intent intent = new Intent(this, GpsService.class);
-        intent.putExtra("userID",userID);
-        startService(intent);
+        Intent GpsServiceIntent = new Intent(this, GpsService.class);
+        GpsServiceIntent.putExtra("userID",userID);
+        startService(GpsServiceIntent);
         // ------------------
 
         imgbtn = (ImageButton) findViewById(R.id.News);
